@@ -12,28 +12,47 @@
 
 #include <unistd.h>
 #include <stdio.h>
+int result(const char *str);
+int	ft_atoi(const char *str)
+{
+	return (result(str));
+}
 
-int	ft_atoi(char *str)
+int result(const char *str)
 {
 	int	i;
 	int	p;
 	int	res;
+	int	counterMin;
+	int	counterMas;
 
 	i = 0;
 	res = 1;
 	p = 0;
+	counterMas = 0;
+	counterMin = 0;
 	while (str[i] == 9 || str[i] == 10 || str[i] == 11
 		|| str[i] == 12 || str[i] == 13 || str[i] == 32)
 	{
 		i++;
 	}
-	while (str[i] == '-' || str[i] == '+')
+	while (str[i] == '-')
 	{
-		if (str[i] == '-')
-		{
-			res *= -1;
-		}
+		counterMin++;
 		i++;
+		if(counterMin > 1)
+			res = 0;
+		else
+			res = -1;
+	}
+	while(str[i] == '+')
+	{
+		counterMas++;
+		i++;
+		if(counterMas > 1)
+			res = 0;
+		else
+			res = 1;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
@@ -43,3 +62,4 @@ int	ft_atoi(char *str)
 	}
 	return (res * p);
 }
+
