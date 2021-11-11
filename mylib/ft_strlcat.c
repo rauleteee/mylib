@@ -16,12 +16,11 @@ int	min(int a, int b);
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
-	//unsigned int	counter;
 	unsigned int	counter1;
 
 	i = 0;
 	counter1 = ft_strlenMod(dest);
-	if(size - 1 < counter1)
+	if (size - 1 < counter1)
 		return (size + (unsigned)ft_strlenMod(src));
 	while (i < size)
 	{
@@ -29,8 +28,6 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	}
 	dest[size - 1] = '\0';
 	return (ft_strlenMod(src) + counter1);
-
-
 }
 
 int	ft_strlenMod(char *str)
@@ -42,9 +39,9 @@ int	ft_strlenMod(char *str)
 		i++;
 	return (i);
 }
-int	min(int a, int b)
+int	min (int a, int b)
 {
-	if(a > b)
+	if (a > b)
 		return (b);
 	return (a);
 }

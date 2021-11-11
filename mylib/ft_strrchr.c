@@ -42,4 +42,4 @@ int	ft_strlen(const	char *str)
 	while (str[i] != '\0')
 		i++;
 	return (i);
-} 
+}
