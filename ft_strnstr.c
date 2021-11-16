@@ -11,36 +11,37 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_findneedle(char *s, char *needle)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
+        unsigned int     c;
 
-	i = 0;
-	 while (s[i] && needle[i])
-	{
-		if (s[i] != needle[i])
-			return (-1);
-		i++;
-	}
-	 return (i);
+        c = 0;
+        while ((s1[c] || s2[c]) && (c < n))
+        {
+			int r = ((unsigned char)s1[c] - (unsigned char)s2[c]);
+			if (s1[c] != s2[c])
+				return (r);
+            c++;
+        }
+        return (0);
 }
 
-char	*ft_strnstr(char *str, char *to_find, int n)
+char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 {
-	int	i;
-	int	size;
+	size_t	i;
+	size_t	count;
 
 	if (to_find[0] == '\0')
-		return (str);
-	size = ft_strlen(to_find);
+		return ((char *)str);
 	i = 0;
-	while (i < n)
+	count = 0;
+	while(ft_strncmp(str, to_find, n) == '0' && i < n)
 	{
-		if (to_find[0] == str[i])
-		{
-			if (ft_findneedle(&str[i], to_find) == size)
-				return (&str[i]);
-		}
+		if(str[i] == ' ')
+			i++;
+		if (to_find[count] == '\0')
+			return ((char *)&str[i]);
+		count++;
 		i++;
 	}
 	return (0);
