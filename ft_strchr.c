@@ -9,18 +9,19 @@
 /*   Updated: 2021/11/08 13:56:50 by rgimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 char	*ft_strchr(char *s, int c)
 {
-	int		count1;
+	size_t		count1;
+	char	*aux;
 
 	count1 = 0;
-	while (s[count1] != '\0')
+	aux =  (char *)s;
+	while (count1 <= ft_strlen(s))
 	{
-		if ((int)s[count1] == c)
-		{
-			return ((char *)s + count1);
-		}
+		if (aux[count1] == c)
+			return (&aux[count1]);
 		count1++;
 	}
 	return (0);
