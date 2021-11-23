@@ -2,7 +2,7 @@
 
 int	ft_isascii(int c)
 {
-	unsigned char b;
+	unsigned char	b;
 
 	b = c;
 	if (b >= 0 && b <= 127)

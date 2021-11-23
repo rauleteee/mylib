@@ -14,10 +14,10 @@
 char	*ft_strchr(char *s, int c)
 {
 	size_t		count1;
-	char	*aux;
+	char		*aux;
 
 	count1 = 0;
-	aux =  (char *)s;
+	aux = (char *)s;
 	while (count1 <= ft_strlen(s))
 	{
 		if (aux[count1] == c)

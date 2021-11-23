@@ -20,7 +20,7 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 		return ((char *)str);
 	i = 0;
 	count = 0;
-	while(i < n)
+	while (i < n)
 	{
 		if (to_find[count] == str[i])
 			return ((char *)&str[i]);

@@ -13,7 +13,7 @@ int				ft_isascii(int c);
 int				ft_isprint(int c);
 void			*ft_memset(void *s, int c, size_t n);
 char			*ft_strchr(char *s, int c);
-size_t			ft_strlcat(char *dest, char *src, size_t size);
+size_t			ft_strlcat(char *dest, const char *src, size_t size);
 size_t			ft_strlcpy(char *dest, char *src, size_t size);
 size_t			ft_strlen(const char *str);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);

@@ -10,40 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+#include <stdio.h>
 
-size_t	ft_strlenMod(char *str);
-size_t	min(size_t a, size_t b);
-
-size_t	ft_strlcat(char *dest, char *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	counter1;
+	size_t	fstLen;
 
+	counter1 = ft_strlen(dest);
+	fstLen = ft_strlen(dest);
 	i = 0;
-	counter1 = ft_strlenMod(dest);
-	if (size - 1 < counter1)
-		return (size + (unsigned)ft_strlenMod(src));
-	while (i < size)
+	if (size == 0)
+		return (ft_strlen(src));
+	if (size <= ft_strlen(dest))
+		return (size + ft_strlen(src));
+	if (ft_strlen(dest) < size - 1)
 	{
-		dest[counter1++] = src[i++];
+		while (src[i] != '\0' && counter1 < (size - 1) && dest != src)
+		{
+			dest[counter1++] = src[i++];
+		}
 	}
-	dest[size - 1] = '\0';
-	return (ft_strlenMod(src) + counter1);
-}
-
-size_t	ft_strlenMod(char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-size_t	min(size_t a, size_t b)
-{
-	if (a > b)
-		return (b);
-	return (a);
+	dest[counter1] = 0;
+	return (fstLen + ft_strlen(src));
 }
