@@ -12,8 +12,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		ft_memcpy(aux, aux1, n);
 	else
 	{
-		while(n--)
-			aux[n]= aux1[n];
+		while (n--)
+			aux[n] = aux1[n];
 	}
 	return (aux);
 }

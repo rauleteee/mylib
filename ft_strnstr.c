@@ -34,7 +34,7 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 		return ((char *)str);
 	size = ft_strlen(to_find);
 	i = 0;
-	while (n-- > 0)
+	while (i < n-- && str[i])
 	{
 		if (to_find[0] == str[i])
 		{
@@ -45,10 +45,3 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 	}
 	return (0);
 }
-// int main(void)
-// {
-// 	char str[] = "lorem ipsum dolor sit amet ";
-// 	char to_find[] = "ipsum";
-// 	printf("Funcion original: %s\n", strnstr(str,to_find,30));
-// 	printf("Funcion clonada: %s", ft_strnstr(str,to_find,30));
-// }
