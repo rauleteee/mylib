@@ -3,29 +3,17 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char	*aux;
-	unsigned char	*aux1;
-	size_t			i;
-	size_t			j;
-	size_t			k;
+	unsigned char		*aux;
+	const unsigned char	*aux1;
 
 	aux = (unsigned char *)dest;
-	aux1 = (unsigned char *)src;
-	i = 0;
-	j = ft_strlen((char *)aux);
-	k = ft_strlen((char *)aux1);
-	if ((char *)src > (char *)dest)
+	aux1 = (const unsigned char *)src;
+	if (aux1 > aux)
 		ft_memcpy(aux, aux1, n);
 	else
 	{
-		dest = (char *)dest + n - 1;
-		src = (char *)src + n - 1;
-		while (n--)
-		{
-			*(char *)dest = *(char *)src;
-			dest = (char *)dest - 1;
-			src = (char *)src - 1;
-		}
+		while(n--)
+			aux[n]= aux1[n];
 	}
-	return ((void *)aux);
+	return (aux);
 }
