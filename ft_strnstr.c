@@ -18,7 +18,7 @@ size_t	ft_findneedle(char *s, const char *needle)
 	i = 0;
 	while (s[i] && needle[i])
 	{
-		if (s[i] != needle[i])
+		if ((unsigned char)s[i] != (unsigned char)needle[i])
 			return (-1);
 		i++;
 	}
@@ -34,14 +34,15 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 		return ((char *)str);
 	size = ft_strlen(to_find);
 	i = 0;
-	while (i < n-- && str[i])
+	while (i < n && str[i])
 	{
-		if (to_find[0] == str[i])
+		if ((unsigned char)to_find[0] == (unsigned char)str[i])
 		{
 			if (ft_findneedle((char *)&str[i], to_find) == size)
 				return ((char *)&str[i]);
 		}
 		i++;
+		n--;
 	}
 	return (0);
 }

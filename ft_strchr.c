@@ -18,9 +18,11 @@ char	*ft_strchr(char *s, int c)
 
 	count1 = 0;
 	aux = (char *)s;
-	while (count1 <= ft_strlen(s))
+	if (c == 0)
+		return (&s[ft_strlen(s)]);
+	while (count1 <= ft_strlen(aux))
 	{
-		if (aux[count1] == c)
+		if ((unsigned char)aux[count1] == (unsigned char)c)
 			return (&aux[count1]);
 		count1++;
 	}

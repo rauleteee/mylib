@@ -20,7 +20,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	while ((s1[c] || s2[c]) && (c < n))
 	{
 		r = ((unsigned char)s1[c] - (unsigned char)s2[c]);
-		if (s1[c] != s2[c])
+		if ((unsigned char)s1[c] != (unsigned char)s2[c])
 			return (r);
 		c++;
 	}

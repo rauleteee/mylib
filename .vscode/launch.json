@@ -7,11 +7,11 @@
       "request": "launch",
       "args": [],
       "stopAtEntry": true,
-      "cwd": "/Users/raulgimenez/42/mylib/mylib",
+      "cwd": "/Users/raulgimenez/42/mylib",
       "environment": [],
-      "program": "/Users/raulgimenez/42/mylib/mylib/build/Debug/outDebug",
+      "program": "/Users/raulgimenez/42/mylib/build/Debug/outDebug",
       "internalConsoleOptions": "openOnSessionStart",
-      "MIMode": "gdb",
+      "MIMode": "lldb",
       "externalConsole": true
     }
   ]

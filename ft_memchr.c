@@ -8,7 +8,7 @@ void	*ft_strchrMod(char *s, int c, size_t n)
 	aux = (char *)s;
 	while (count < n)
 	{
-		if (aux[count] == c)
+		if ((unsigned char)aux[count] == (unsigned char)c)
 			return ((void *)&aux[count]);
 		count++;
 	}
@@ -17,5 +17,7 @@ void	*ft_strchrMod(char *s, int c, size_t n)
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	return (ft_strchrMod((char *)s, c, n));
+	if(s == 0)
+		return (0);
+	return ((void *)ft_strchrMod((char *)s, c, n));
 }

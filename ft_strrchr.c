@@ -20,9 +20,11 @@ char	*ft_strrchr(const char *s, int c)
 	count1 = ft_strlen(s);
 	count = 0;
 	aux = (char *)s;
+	if (c == 0)
+		return(&aux[ft_strlen(aux)]);
 	while (count1 >= 0)
 	{
-		if (aux[count1] == c)
+		if ((unsigned char)aux[count1] == (unsigned char)c)
 		{
 			return (&aux[count1]);
 		}
