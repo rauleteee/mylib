@@ -10,6 +10,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	aux1 = (char *)src;
 	i = 0;
 	j = 0;
+	if (dest == 0 && src == 0)
+		return (0);
 	while (i < n)
 	{
 		aux[i++] = aux1[j++];

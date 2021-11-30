@@ -1,6 +1,6 @@
 #include "libft.h"
 
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*sum;
 	size_t	i;
@@ -8,8 +8,10 @@ char *ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
-	sum = malloc(ft_strlen(s1) + ft_strlen(s2) + 2);
-
+	if (s1 != 0 && s2 != 0)
+		sum = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	else
+		return (0);
 	while (i < ft_strlen(s1))
 	{
 		sum[i++] = s1[j++];
@@ -17,7 +19,7 @@ char *ft_strjoin(char const *s1, char const *s2)
 	sum[i] = '\0';
 	i = ft_strlen(s1);
 	j = 0;
-	while(i < (ft_strlen(s2) + ft_strlen(s1)))
+	while (i < (ft_strlen(s2) + ft_strlen(s1)))
 	{
 		sum[i++] = s2[j++];
 	}

@@ -8,6 +8,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	aux = (unsigned char *)dest;
 	aux1 = (const unsigned char *)src;
+	if (dest == NULL || src == NULL)
+		return (0);
 	if (aux1 > aux)
 		ft_memcpy(aux, aux1, n);
 	else
