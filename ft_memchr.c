@@ -17,7 +17,7 @@ void	*ft_strchrMod(char *s, int c, size_t n)
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if(s == 0)
+	if(s == 0 && c == 0 && n == 0)
 		return (0);
 	return ((void *)ft_strchrMod((char *)s, c, n));
 }
