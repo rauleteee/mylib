@@ -1,9 +1,10 @@
 #include "libft.h"
 
-int numb(int n);
+int		numb(int n);
 void	ft_rev_int_tab(char *tab, int size);
 void	ft_swap(char *a, char *b);
 char	*intToChar(int neg);
+char	*changeMin(int i);
 
 char *ft_itoa(int n)
 {
@@ -13,33 +14,60 @@ char *ft_itoa(int n)
 
 	i = 0;
 	neg = 0;
-	aux = malloc(numb(n));
-	if (n > 0)
-		aux = intToChar(n);
-	if (n < 0)
+	aux = malloc(numb(n) + 1);
+	if (aux == 0)
+		return (0);
+	if(n == -2147483648)
 	{
+		aux = changeMin(n);
+		return (aux);
+	}
+	if(n < 0)
+	{	
 		neg = n * (-1);
 		aux = intToChar(neg);
 		aux[ft_strlen(aux)] = '-';
+		ft_rev_int_tab(aux, ft_strlen(aux));
+		return (aux);
 	}
+	aux = intToChar(n);
 	ft_rev_int_tab(aux, ft_strlen(aux));
 	return (aux);
 }
-char	*intToChar(int neg)
+
+char	*intToChar(int n)
 {
 	char	*aux;
 	size_t	i;
 
 	i = 0;
-	aux = malloc(numb(neg));
-	while(neg)
+	aux = malloc(numb(n) + 1);
+	if (n == 0)
 	{
-		aux[i++] = (neg % 10 + '0');
-		neg = neg / 10;
+		aux[0] = '0';
+		return (aux);
+	}
+	while(n)
+	{
+		aux[i++] = n % 10 + '0';
+		n = n / 10;
 	}
 	aux[i] = '\0';
 	return (aux);
 }
+
+char	*changeMin(int i)
+{
+	char	*aux;
+
+	aux = malloc(numb(i) + 1);
+	aux = intToChar(2147483647);
+	aux[0] = '8';
+	aux[ft_strlen(aux)] = '-';
+	ft_rev_int_tab(aux, ft_strlen(aux));
+	return (aux);
+}
+
 int numb(int n)
 {
 	int	res;
@@ -50,6 +78,8 @@ int numb(int n)
 		res++;
 		n = n / 10;
 	}
+	if (n < 0)
+		res = res + 1;
 	return (res);
 
 }
@@ -65,7 +95,7 @@ void	ft_rev_int_tab(char *tab, int size)
 	if (size <= 0)
 		return ;
 	negative = size - 1;
-	while (positive <= mitad)
+	while (positive < mitad)
 	{
 		ft_swap(&tab[positive], &tab[negative]);
 		positive++;
@@ -80,15 +110,4 @@ void	ft_swap(char *a, char *b)
 	c = *a;
 	*a = *b;
 	*b = c;
-}
-
-
-int main(void)
-{
-	int n = 100;
-	int n2= -999999999999999;
-	char c[] = "Hola";
-	printf("Resultado de la función para n: %s\n", ft_itoa(n));
-	printf("Resultado de la función para n2: %s\n", ft_itoa(n2));
-	printf("Resultado de la función para n2: %s\n", c);
 }
