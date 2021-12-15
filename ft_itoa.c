@@ -14,7 +14,7 @@ char *ft_itoa(int n)
 
 	i = 0;
 	neg = 0;
-	aux = malloc(numb(n) + 1);
+	aux = malloc(numb(n));
 	if (aux == 0)
 		return (0);
 	if(n == -2147483648)
@@ -28,6 +28,7 @@ char *ft_itoa(int n)
 		aux = intToChar(neg);
 		aux[ft_strlen(aux)] = '-';
 		ft_rev_int_tab(aux, ft_strlen(aux));
+		aux[ft_strlen(aux) + 1] = '\0';
 		return (aux);
 	}
 	aux = intToChar(n);
@@ -60,11 +61,12 @@ char	*changeMin(int i)
 {
 	char	*aux;
 
-	aux = malloc(numb(i) + 1);
+	aux = malloc(numb(i) + 2);
 	aux = intToChar(2147483647);
 	aux[0] = '8';
 	aux[ft_strlen(aux)] = '-';
 	ft_rev_int_tab(aux, ft_strlen(aux));
+	aux[ft_strlen(aux) + 1] = '\0';
 	return (aux);
 }
 

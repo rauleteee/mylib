@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+//static int	returnResult(unsigned long int a);
 int	ft_atoi(const char *str)
 {
 	int	i;
@@ -36,5 +37,12 @@ int	ft_atoi(const char *str)
 		p += ((int)str[i] - 48);
 		i++;
 	}
-	return (res * p);
+	return(res*p);
 }
+
+// static int	returnResult(unsigned long int a)
+// {
+// 	if (a > 9223372036854775807)
+// 		return (-1);
+// 	return (a);
+// }
