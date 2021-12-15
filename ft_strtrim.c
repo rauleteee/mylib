@@ -1,7 +1,7 @@
 #include "libft.h"
 
-static size_t	isChar (char const *s1, char c);
-static char	*removeChr(const char *s1, const char *set);
+static size_t	isChar(char const *s1, char c);
+static char		*removeChr(const char *s1, const char *set);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -9,6 +9,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (0);
 	return (removeChr(s1, set));
 }
+
 static char	*removeChr(const char *s1, const char *set)
 {
 	char	*aux;
@@ -31,12 +32,12 @@ static char	*removeChr(const char *s1, const char *set)
 	return (aux);
 }
 
-static size_t	isChar (char const *s1, char c)
+static size_t	isChar(char const *s1, char c)
 {
 	size_t	i;
 
 	i = 0;
-	while(i < ft_strlen(s1))
+	while (i < ft_strlen(s1))
 	{
 		if (s1[i] == c)
 			return (1);
@@ -44,22 +45,3 @@ static size_t	isChar (char const *s1, char c)
 	}
 	return (0);
 }
-
-// static char	*removeChrFinal(const char *s1, const char *set)
-// {
-// 	char	*aux;
-// 	size_t	final;
-
-// 	final = ft_strlen(s1);
-// 	while ( && ft_strchr((char *)set, s1[final]))
-// 		final--;
-// 	aux = ft_substr(s1, 0, final);
-// 	return (aux);
-// }
-
-// int main(void)
-// {
-// 	char s1[] = "hola buenas hola";
-// 	char set[] = "hola";
-// 	printf("Resultado de strtrim : %s\n", ft_strtrim(s1,set));
-// }
