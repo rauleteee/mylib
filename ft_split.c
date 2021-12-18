@@ -1,71 +1,72 @@
 #include "libft.h"
+static	size_t sepCounter(char const *s, char c);
+static	void	freeResult(char **res, int i);
+static char **makeSmall(const char *s, char c, char **res);
 
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
-	char	*subStr;
 	size_t	N;
-	size_t	i;
-	//N= number of substrings
+
 	N = sepCounter(s, c);
-	//first, memory allocation
-	result = malloc((N + 1) * sizeof (*result));
-
+	if (!(result = malloc((N + 1) * sizeof (*result))))
+		return (0);
+	result = makeSmall(s, c, result);
+	return (result);
 }
-
-static	int sepCounter(char const *s, char c)
+static char **makeSmall(const char *s, char c, char **res)
 {
-	char	found;
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
-	found = c;
+	k = 0;
 	i = 0;
+	while (k < sepCounter(s, c))
+	{
+		j = 0;
+		if (!(res[k] = malloc(sepCounter(s,c) + 1)))
+			freeResult(res, k);
+		while (s[i] == c && s[i])
+			i++;
+		while (s[i] != c && s[i])
+			res[k][j++] = s[i++];
+		res[k][j] = 0;
+		k++;
+	}
+	res[k] = 0;
+	return (res);
+}
+static	size_t sepCounter(char const *s, char c)
+{
+	size_t		i;
+	size_t		j;
+	size_t		prev;
+
+	if (s == 0 || s[0] == 0)
+		return (0);
+	i = 1;
 	j = 0;
+	if (s[0] != c)
+		j++;
 	while (s[i])
 	{
-		if (found == c && s[i] != c)
+		prev = i - 1;
+		if (s[i] != c && s[prev] == c)
 			j++;
-		found = s[i];
 		i++;
 	}
 	return (j);
 }
-
-static	char	*smallMaker(char	const *s, char c)
+static	void	freeResult(char **res, int i)
 {
-	char	*small;
-	//delimitador para donde comenzar la nueva string
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	small = malloc (ft_strlen(small) + 1);
-	while (s[i] != c)
-		i++;
-	i = j;
-	while (i)
-	{
-		small[i--] = s[j--];
-	}
-	small [ft_strlen(small)] = '\0';
-	return (small);
-}
-
-static	char	fillUp(char const **s, char *small)
-{
-	int	i;
 	int	j;
-	int	k;
 
-	i = 0;
-	while (s[i][j])
-	{
-		j = 0;
-		while (s[i][j])
-		{
-			s[i][j] = small [k];
-		}
-	}
+	j = 0;
+	while (j < i && res[i])
+		free(res[j++]);
+	free(res);
+	return ;
 }
+
+

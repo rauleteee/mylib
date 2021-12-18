@@ -3,10 +3,11 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*i;
+	size_t	totalSize;
 
-	i = malloc(nmemb * size);
-	if (i == 0)
+	totalSize = nmemb * size;
+	if (!(i = malloc(totalSize)))
 		return (0);
-	ft_bzero(i, nmemb * size);
-	return (i);
+	ft_bzero(i, totalSize);
+	return i;
 }

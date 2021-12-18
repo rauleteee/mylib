@@ -22,7 +22,7 @@ size_t	ft_findneedle(char *s, const char *needle)
 			return (-1);
 		i++;
 	}
-	 return (i);
+	return (i);
 }
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t n)
