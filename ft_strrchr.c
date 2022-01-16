@@ -16,7 +16,7 @@ char	*ft_strrchr(const char *s, int c)
 	int		count1;
 	int		count;
 	char	*aux;
-
+	
 	count1 = ft_strlen(s);
 	count = 0;
 	aux = (char *)s;

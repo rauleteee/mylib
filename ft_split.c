@@ -37,6 +37,7 @@ static char **makeSmall(const char *s, char c, char **res)
 	res[k] = 0;
 	return (res);
 }
+
 static	size_t sepCounter(char const *s, char c)
 {
 	size_t		i;

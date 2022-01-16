@@ -30,6 +30,7 @@ char	*ft_itoa(int n)
 	return (res);
 }
 
+
 static int	numb(int n)
 {
 	int	res;
