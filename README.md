@@ -3,10 +3,10 @@
 	LIBFT 42 Madrid
 </h1>
 
-### DESCRIPCIÓN
-LIBFT es mi primer proyecto de 42 Madrid, el cual se basa en una librería de funciones replicadas. Actualmente está incompleto o con fallos leves, ya que estoy en mi periodo de exámenes en la Universidad. Puedes echarle un ojo para ver la forma en la que he abordado las funciones básicas de lenguaje C. En un futuro, cuando entregue el proyecto, iré añadiendo poco a poco descripciones en cada función.
+### DESCRIPTION
+LIBFT is my very first project in 42 Madrid Academy, which is based on replicated functions in C language. Currently, it is not finished yet. Although, you can check it in order to understand how I have dealt with these functions' replication. I will be uploading improvements on my code, while I am studying for university exams.
 
-### LISTA DE FUNCIONES IMPLEMENTADAS
+### LIST OF IMPLEMENTED FUNCTIONS
  * int				ft_atoi(const char *str);
  * int				ft_isdigit(int c);
  * int				ft_isalnum(int c);
@@ -51,14 +51,14 @@ LIBFT es mi primer proyecto de 42 Madrid, el cual se basa en una librería de fu
  * void 			ft_lstiter(t_list *lst, void (*f)(void *));
  * t_list 			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
- ### FUNCIONES MAKEFILE
- *  _make all_ : crea archivos ejecutables .o y pasa flags ( -Wall -Wextra -Werror -c )
- * _make clean_ : elimina archivos .o.
- * _make fclean_ : make clean + eliminar archivo .a
+ ### MAKEFILE's FUNCTIONS
+ *  _make all_ : creates .o files and checks flags  ( -Wall -Wextra -Werror -c )
+ * _make clean_ : removes .o files.
+ * _make fclean_ : make clean + removes .a file.
  * _make re_ : make all + make clean.
- * _make flags_ : pasa flags
+ * _make flags_ : only for checking flags.
 
 
- ### CALIFICACIÓN NORMINETTE
- > _Aún por determinar_
+ ### NORMINETTE's GRADE
+ > _Yet to be determined_
 
